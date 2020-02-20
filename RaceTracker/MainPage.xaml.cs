@@ -19,14 +19,13 @@ namespace RaceTracker
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
-        private int _amOfPushSent;
         readonly INotificationManager _notificationManager;
         int _notificationNumber = 0;
 
         public MainPage()
         {
             InitializeComponent();
-            
+
             _notificationManager = DependencyService.Get<INotificationManager>();
             _notificationManager.NotificationReceived += (sender, eventArgs) =>
             {
@@ -38,8 +37,6 @@ namespace RaceTracker
         private void PushNotificationTest(object sender, EventArgs e)
         {
             var raceTrackerUrl = "https://racetracker.no/";
-            _amOfPushSent++;
-            TestLabel.Text = "Push request test succeeded " + _amOfPushSent;
 
             //Uri uri = new Uri(raceTrackerUrl);
             //await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
@@ -50,8 +47,9 @@ namespace RaceTracker
 
             Guid newGuid = Guid.NewGuid();
             Analytics.TrackEvent($"{newGuid}");
-            
+
             _notificationNumber++;
+            TestLabel.Text = "Push request test succeeded " + _notificationNumber;
             string title = $"Checkpoint #{_notificationNumber}";
             string message = $"{raceTrackerUrl}{newGuid}";
             _notificationManager.ScheduleNotification(title, message);
@@ -63,10 +61,16 @@ namespace RaceTracker
         {
             Device.BeginInvokeOnMainThread(() =>
             {
+                var ttl = new Label()
+                {
+                    Text = $"{title}:",
+                    TextColor = Color.Black
+                };
                 var msg = new Label()
                 {
                     //Text = $"Notification Received:\nTitle: {title}\nMessage: {message}"
-                    Text = $"{message}",
+                    //Text = $"{message}",
+                    Text = $"Link",
                     TextColor = Color.Blue,
                     TextDecorations = TextDecorations.Underline,
                     GestureRecognizers = { new TapGestureRecognizer
@@ -76,6 +80,7 @@ namespace RaceTracker
                     }}
                 };
                 UrlOutput.Children.Clear();
+                UrlOutput.Children.Add(ttl);
                 UrlOutput.Children.Add(msg);
             });
         }
