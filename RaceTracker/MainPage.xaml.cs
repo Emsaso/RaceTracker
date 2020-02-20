@@ -46,13 +46,16 @@ namespace RaceTracker
             //Analytics.TrackEvent($"Push Event Test {_amOfPushSent}");
 
             Guid newGuid = Guid.NewGuid();
-            Analytics.TrackEvent($"{newGuid}");
+            //Analytics.TrackEvent($"{newGuid}");
 
             _notificationNumber++;
             TestLabel.Text = "Push request test succeeded " + _notificationNumber;
             string title = $"Checkpoint #{_notificationNumber}";
-            string message = $"{raceTrackerUrl}{newGuid}";
+            string message = $"{raceTrackerUrl}";
+            //string message = $"{raceTrackerUrl}{newGuid}";
             _notificationManager.ScheduleNotification(title, message);
+            Analytics.TrackEvent($"{_notificationManager}, {newGuid}");
+
             //bool isEnabled = await Push.IsEnabledAsync();
 
             //Crashes.GenerateTestCrash();
