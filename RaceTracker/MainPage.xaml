@@ -5,18 +5,53 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="RaceTracker.MainPage">
-
-  <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-    <Label x:Name="TestLabel" HorizontalTextAlignment="Center">Click the button</Label>
-    <Button Text="Notify!"
-       HorizontalOptions="Center"
-       HeightRequest="100"
-       WidthRequest="100"
-       CornerRadius="50"
-       FontAttributes="Bold"
-       Clicked="PushNotificationTest" />
-    <StackLayout x:Name="UrlOutput">
-    </StackLayout>
-  </StackLayout>
+    <Grid Padding="5" BackgroundColor="#696969">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+        <RowDefinition Height="*"></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+        <ColumnDefinition Width="*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <StackLayout Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" BackgroundColor="#999999" x:Name="HeaderContainer" Padding="5">
+        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+          <Image HorizontalOptions="StartAndExpand" Source="racetrackerlogo.png"></Image>
+          <Label HorizontalOptions="CenterAndExpand" FontSize="20">RaceTracker</Label>
+          <Label HorizontalOptions="EndAndExpand">User</Label>
+        </StackLayout>
+      </StackLayout>
+      <StackLayout Grid.Row="1" Grid.RowSpan="6" Grid.Column="0" BackgroundColor="#505050" x:Name="SidebarContainer" Padding="5">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+          <Label>Sidebar</Label>
+          <Label>Link1</Label>
+          <Label>Link2</Label>
+          <Label>Link3</Label>
+          <Label>Link4</Label>
+          <Label>Link5</Label>
+        </StackLayout>
+      </StackLayout>
+      <StackLayout Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" BackgroundColor="#696969" x:Name="ContentContainer" Padding="5">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+          <Label x:Name="TestLabel" HorizontalTextAlignment="Center">Click the button</Label>
+          <Button Text="Notify!"
+             HorizontalOptions="Center"
+             HeightRequest="100"
+             WidthRequest="100"
+             CornerRadius="50"
+             FontAttributes="Bold"
+             Clicked="PushNotificationTest" />
+          <StackLayout x:Name="UrlOutput">
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>
+    </Grid>
 
 </ContentPage>

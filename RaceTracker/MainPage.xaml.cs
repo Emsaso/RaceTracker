@@ -59,7 +59,7 @@ namespace RaceTracker
                 {
                     //Text = $"Link",
                     Text = $"{message}",
-                    TextColor = Color.Blue,
+                    TextColor = Color.DodgerBlue,
                     TextDecorations = TextDecorations.Underline,
                     GestureRecognizers = { new TapGestureRecognizer
                     {
