@@ -89,7 +89,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\RaceTrackerLogo.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RaceTracker\RaceTracker.csproj">
       <Project>{228F6590-FB42-4E6C-A0C4-31D5DA34C5F8}</Project>
@@ -97,7 +99,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\drawable\racetrackerlogo.png" />
+    <AndroidResource Include="Resources\drawable\RaceTrackerLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

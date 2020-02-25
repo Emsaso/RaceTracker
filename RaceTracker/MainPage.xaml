@@ -23,9 +23,19 @@
       </Grid.ColumnDefinitions>
       <StackLayout Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" BackgroundColor="#999999" x:Name="HeaderContainer" Padding="5">
         <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-          <Image HorizontalOptions="StartAndExpand" Source="racetrackerlogo.png"></Image>
-          <Label HorizontalOptions="CenterAndExpand" FontSize="20">RaceTracker</Label>
-          <Label HorizontalOptions="EndAndExpand">User</Label>
+          <Image HorizontalOptions="StartAndExpand"  Source="RaceTrackerLogo.jpg" Aspect="AspectFit" WidthRequest="75"></Image>
+          <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="20">RaceTracker</Label>
+          <Picker HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Title="User" >
+              <Picker.ItemsSource>
+                  <x:Array Type="{x:Type x:String}">
+                      <x:String>Account</x:String>
+                      <x:String>Friends</x:String>
+                      <x:String>Settings</x:String>
+                      <x:String>Log out</x:String>
+                  </x:Array>
+              </Picker.ItemsSource>
+          </Picker>
+            
         </StackLayout>
       </StackLayout>
       <StackLayout Grid.Row="1" Grid.RowSpan="6" Grid.Column="0" BackgroundColor="#505050" x:Name="SidebarContainer" Padding="5">

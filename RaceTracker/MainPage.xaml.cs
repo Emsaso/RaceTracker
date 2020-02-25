@@ -33,18 +33,27 @@ namespace RaceTracker
                 ShowNotification(evtData.Title, evtData.Message);
             };
         }
+
+
         private void PushNotificationTest(object sender, EventArgs e)
         {
             var raceTrackerUrl = "https://racetracker.no/";
             Guid newGuid = Guid.NewGuid();
-
             _notificationNumber++;
-            TestLabel.Text = "Push request test succeeded " + _notificationNumber;
+            TestLabel.Text = $"Push request #{_notificationNumber} has been sent";
+
+            // Notification manager display
             string title = $"Checkpoint #{_notificationNumber}";
             string message = $"{raceTrackerUrl}{newGuid}";
-            _notificationManager.ScheduleNotification(title, message);
-            Analytics.TrackEvent($"{_notificationManager}, {newGuid}");
+            //_notificationManager.ScheduleNotification(title, message);
+
+            // Push notification
+            //Analytics.TrackEvent($"{_notificationManager}, {newGuid}");
+            //Analytics.TrackEvent($"Push notification test #{_notificationNumber}");
+            Analytics.TrackEvent("test");
         }
+
+        // Viser hvilken notifikasjon som sist ble trykket på
         void ShowNotification(string title, string message)
         {
             Device.BeginInvokeOnMainThread(() =>
@@ -73,6 +82,8 @@ namespace RaceTracker
             });
         }
 
+
+        // Åpne linken du trykker på
         private readonly ICommand _navigationCommand = new Command<string>((url) =>
         {
             Launcher.OpenAsync(new Uri(url));
