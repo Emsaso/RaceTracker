@@ -51,13 +51,13 @@
       <StackLayout Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="6" BackgroundColor="#696969" x:Name="ContentContainer" Padding="5">
         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
           <Label x:Name="TestLabel" HorizontalTextAlignment="Center">Click the button</Label>
-          <Button Text="Notify!"
+          <!--<Button Text="Notify!"
              HorizontalOptions="Center"
              HeightRequest="100"
              WidthRequest="100"
              CornerRadius="50"
              FontAttributes="Bold"
-             Clicked="PushNotificationTest" />
+             Clicked="PushNotificationTest" />-->
           <StackLayout x:Name="UrlOutput">
           </StackLayout>
         </StackLayout>

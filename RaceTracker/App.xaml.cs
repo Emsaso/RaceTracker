@@ -23,13 +23,9 @@ namespace RaceTracker
             {
                 Push.PushNotificationReceived += (sender, e) =>
                 {
-                    // Add the notification message and title to the message
                     var summary = $"Checkpoint reached:" +
                                    $"\n\t{e.Title}" +
                                    $"\n\t{e.Message}";
-
-                    // If there is custom data associated with the notification,
-                    // print the entries
                     if (e.CustomData != null)
                     {
                         summary += "\n\tCustom data:\n";
@@ -38,14 +34,12 @@ namespace RaceTracker
                             summary += $"\t\t{key} : {e.CustomData[key]}\n";
                         }
                     }
-
-                    // Send the notification summary to debug output
                     System.Diagnostics.Debug.WriteLine(summary);
                 };
             }
-            AppCenter.Start("ios=2ce226c4-0805-4453-b670-1940f04bd4e7;" +
-                            "android=6da72cba-ff85-4cfa-b9c5-d0b6146ea3c9",
-                typeof(Analytics), typeof(Crashes), typeof(Push));
+            //AppCenter.Start("ios=2ce226c4-0805-4453-b670-1940f04bd4e7;" +
+            //                "android=6da72cba-ff85-4cfa-b9c5-d0b6146ea3c9",
+            //    typeof(Analytics), typeof(Crashes), typeof(Push));
             //typeof(Distribute));
         }
 
